@@ -9,7 +9,6 @@ import java.util.TreeSet;
  * @author Dr. Jody Paul
  * @author ADAM_WOJDYLA
  * @version 1.3.1
- * TEST
  */
 public final class Language implements Iterable<String>, java.io.Serializable {
     /**
