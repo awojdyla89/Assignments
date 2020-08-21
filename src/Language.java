@@ -87,7 +87,7 @@ public final class Language implements Iterable<String>, java.io.Serializable {
      * @return true if this language changed as a result of the call
      */
     public boolean addAllStrings(final Collection<String> memberStrings) {
-        //TODO**
+
         Boolean boole = false;
         for (String str1 : strings) {
             boole = addString(str1) || boole;
@@ -101,7 +101,7 @@ public final class Language implements Iterable<String>, java.io.Serializable {
      * @return an iterator over the strings in this language in ascending order
      */
     public Iterator<String> iterator() {
-        //TODO**
+
 
         return strings.iterator();
     }
@@ -114,7 +114,7 @@ public final class Language implements Iterable<String>, java.io.Serializable {
      * @return the concatenation of this language with the parameter language
      */
     public Language concatenate(final Language language) {
-        //TODO**
+
         Language newLanguage = new Language();
         for (String str1 : this) {
             for (String str2 : language) {
@@ -127,7 +127,7 @@ public final class Language implements Iterable<String>, java.io.Serializable {
     @Override
     public boolean equals(final Object obj) {
         if (obj instanceof Language) {
-            //TODO**
+
             Boolean booleIsEqual = true;
             Language language = (Language) obj;
             if (language.cardinality() != this.cardinality()) {
