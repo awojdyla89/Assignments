@@ -5,6 +5,7 @@ import java.util.TreeSet;
 
 /**
  * Represents a finite language.
+ * Credit to Malcolm Johnson for implementing the hashCode() method.
  *
  * @author Dr. Jody Paul
  * @author ADAM_WOJDYLA
@@ -89,7 +90,7 @@ public final class Language implements Iterable<String>, java.io.Serializable {
     public boolean addAllStrings(final Collection<String> memberStrings) {
 
         Boolean boole = false;
-        for (String str1 : strings) {
+        for (String str1 : memberStrings) {
             boole = addString(str1) || boole;
         }
         return boole;
@@ -124,6 +125,12 @@ public final class Language implements Iterable<String>, java.io.Serializable {
         return newLanguage;
     }
 
+    /**
+     * Checking to see if this language is same language as the argument
+     *
+     * @param obj is the language to check for equality
+     * @return true if the language is the same, false otherwise
+     */
     @Override
     public boolean equals(final Object obj) {
         if (obj instanceof Language) {
@@ -145,9 +152,15 @@ public final class Language implements Iterable<String>, java.io.Serializable {
         return false;
     }
 
+    /**
+     * produces a consistent hashcode for language using our
+     * private collection of strings
+     *
+     * @return an integer associated with the hashcode
+     */
     @Override
     public int hashCode() {
-        //TODO
-        return Integer.MIN_VALUE;
+
+        return strings.hashCode();
     }
 }
