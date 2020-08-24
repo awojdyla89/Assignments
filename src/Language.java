@@ -65,7 +65,7 @@ public final class Language implements Iterable<String>, java.io.Serializable {
      */
     public boolean includes(final String candidate) {
 
-        return candidate == null || strings.contains(candidate);
+        return candidate != null && strings.contains(candidate);
     }
 
     /**
