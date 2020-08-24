@@ -135,7 +135,6 @@ public final class Language implements Iterable<String>, java.io.Serializable {
     public boolean equals(final Object obj) {
         if (obj instanceof Language) {
 
-            Boolean booleIsEqual = true;
             Language language = (Language) obj;
             if (language.cardinality() != this.cardinality()) {
                 return false;
@@ -145,9 +144,11 @@ public final class Language implements Iterable<String>, java.io.Serializable {
             Iterator<String> itrTwo = language.iterator();
 
             while (itrOne.hasNext()) {
-                booleIsEqual = itrOne.next().equals(itrTwo.next());
+                if(!itrOne.next().equals(itrTwo.next())){
+                        return false;
+                }
             }
-            return booleIsEqual;
+            return true;
         }
         return false;
     }
