@@ -89,11 +89,7 @@ public final class Language implements Iterable<String>, java.io.Serializable {
      */
     public boolean addAllStrings(final Collection<String> memberStrings) {
 
-        Boolean boole = false;
-        for (String str1 : memberStrings) {
-            boole = addString(str1) || boole;
-        }
-        return boole;
+        return strings.addAll(memberStrings);
     }
 
     /**
@@ -136,19 +132,7 @@ public final class Language implements Iterable<String>, java.io.Serializable {
         if (obj instanceof Language) {
 
             Language language = (Language) obj;
-            if (language.cardinality() != this.cardinality()) {
-                return false;
-            }
-
-            Iterator<String> itrOne = this.iterator();
-            Iterator<String> itrTwo = language.iterator();
-
-            while (itrOne.hasNext()) {
-                if(!itrOne.next().equals(itrTwo.next())){
-                        return false;
-                }
-            }
-            return true;
+            return strings.equals(language.strings);
         }
         return false;
     }
